@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Users;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -36,5 +37,11 @@ class UserController extends Controller
     }
 
     return response()->json(['error' => 'Nenhuma foto enviada'], 400);
+}
+
+public function getAll()
+{
+    $user = User::all();
+    return response()->json($user);
 }
 }
